@@ -12,7 +12,7 @@ app = Flask(__name__)
 def getDetails(crop_id):
     
     return jsonify(
-        crop_name=list(result.keys())[crop_id],
+        crop_name=list(result.keys())[crop_id-1],
         temperature='20 to 27',
         irrigation_pattern='5',
         disease='Bacterial leaf streak, Rice Bacterial blight, Leaf scald, Bakanae, Brown spot, Stem borers, Rice mealy bugs , Rice gall midge, Rice case worm'
