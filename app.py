@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import pickle
 
 filename = 'crop_model.pkl'
@@ -21,8 +21,11 @@ def getDetails(ph_value):
 
 @app.route('/predict/<msg>',methods=['GET','POST'])
 def predict(msg):
-    l=msg.split(',')
-    params = [[l[0], l[1], l[2], l[3]]]
+    ph_value=request.args.get('ph_value', type = float)
+    temperature=request.args.get('temperature', type = float)
+    humidity=request.args.get('humidity', type = float)
+    rainfall=request.args.get('rainfall', type = float)
+    params = [[ph_value, temperature, humidity, rainfall]]
     return model.predict(params)
 
 if __name__ == '__main__':
