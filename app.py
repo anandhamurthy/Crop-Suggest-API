@@ -19,8 +19,8 @@ def getDetails(ph_value):
         description=desc
     )
 
-@app.route('/predict/<msg>',methods=['GET','POST'])
-def predict(msg):
+@app.route('/predict/',methods=['GET','POST'])
+def predict():
     ph_value=request.args.get('ph_value', type = float)
     temperature=request.args.get('temperature', type = float)
     humidity=request.args.get('humidity', type = float)
