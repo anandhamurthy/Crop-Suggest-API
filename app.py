@@ -4,19 +4,18 @@ import pickle
 filename = 'crop_model.pkl'
 model = pickle.load(open(filename, 'rb'))
 
+result={'Rice': 1,
+ 'Maize': 2}
+
 app = Flask(__name__)
 
-def getDetails(ph_value):
-    desc=''
-    if ph_value>=6.0 and ph_value<=7.5:
-        desc="Your Argiculture Land is ready to grown Crops."
-    elif ph_value<6.0:
-        desc="Land is Acidic, Some nutrients such as nitrogen, phosphorus, and potassium are less available."
-    elif ph_value>7.5:
-        desc="Land is very Alkaline, Iron, manganese, and phosphorus are less available."
+def getDetails(crop_id):
+    
     return jsonify(
-        ph_value=ph_value,
-        description=desc
+        crop_name=list(result.keys())[crop_id],
+        temperature='20 to 27',
+        irrigation_pattern='5',
+        disease='Bacterial leaf streak, Rice Bacterial blight, Leaf scald, Bakanae, Brown spot, Stem borers, Rice mealy bugs , Rice gall midge, Rice case worm'
     )
 
 @app.route('/predict/',methods=['GET','POST'])
@@ -26,7 +25,7 @@ def predict():
     humidity=request.args.get('humidity', type = float)
     rainfall=request.args.get('rainfall', type = float)
     params = [[ph_value, temperature, humidity, rainfall]]
-    return str(model.predict(params))
+    return int(model.predict(params)[0])
 
 if __name__ == '__main__':
     app.run(debug=True)
