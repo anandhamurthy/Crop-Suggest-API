@@ -26,7 +26,7 @@ def predict():
     humidity=request.args.get('humidity', type = float)
     rainfall=request.args.get('rainfall', type = float)
     params = [[ph_value, temperature, humidity, rainfall]]
-    return model.predict(params)
+    return str(model.predict(params))
 
 if __name__ == '__main__':
     app.run(debug=True)
