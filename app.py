@@ -81,7 +81,7 @@ def predict():
 
 @app.route('/predict_alerts/',methods=['GET','POST'])
 def predict_alerts():
-    api_key = request.args.get('api_key', type=int)
+    api_key = request.args.get('api_key', type=str)
     longitude = request.args.get('lon', type=float)
     latitude = request.args.get('lat', type=float)
     response = requests.get('https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&exclude=hourly,current,minutely&appid='+api_key)
