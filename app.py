@@ -15,7 +15,8 @@ def getDetails(predict_list):
         "probability": predict_list[0],
         "temperature": '20°C to 27°C',
         "irrigation_pattern": 5,
-        "disease_model": 'url',
+        "growth_period": "120−140 days",
+        "disease_model": 'https://crop-disease-predict-api.herokuapp.com/rice/',
         "disease": '1. Bacterial leaf streak, 2. Rice Bacterial blight, 3. Leaf scald, Bakanae, 4. Brown spot, 5. Stem borers, 6. Rice mealy bugs , 7. Rice gall midge, 8. Rice case worm'
     }
 
@@ -25,7 +26,8 @@ def getDetails(predict_list):
         "probability": predict_list[1],
         "temperature": '21°C to 27°C',
         "irrigation_pattern": 7,
-        "disease_model": 'url',
+        "growth_period": "90-120 days",
+        "disease_model": 'https://crop-disease-predict-api.herokuapp.com/maize/',
         "disease": '1. Anthracnose , 2. Cercospora leaf spot (Gray leaf spot), 3. Charcoal rot, 4. Common rust, 5. Common smut 6. Downy Mildew'
     }
 
@@ -35,7 +37,8 @@ def getDetails(predict_list):
         "probability": predict_list[2],
         "temperature": 'below 15°C',
         "irrigation_pattern": 7,
-        "disease_model": 'url',
+        "growth_period": "90-100 days",
+        "disease_model": 'None',
         "disease": '1. Fusarium Wilt, 2. Powdery Mildew, 3. White Mold Stem & Crown Rot of Chickpea, 4.	Black Root Rot, 5. Pythium Seedling, 6.	Downy Mildew.Rust'
     }
 
@@ -45,7 +48,8 @@ def getDetails(predict_list):
         "probability": predict_list[3],
         "temperature": '15°C to 25°C',
         "irrigation_pattern": 7,
-        "disease_model": 'url',
+        "growth_period": "90-150 days",
+        "disease_model": 'None',
         "disease": '1. Anthracnose, 2. Rust, 3. Root rot, 4. Bean common mosaic disease, 5.	Watery Soft Rot, 6.	Angular leaf spot'
     }
 
@@ -55,7 +59,8 @@ def getDetails(predict_list):
         "probability": predict_list[4],
         "temperature": '26°C to 30°C',
         "irrigation_pattern": 7,
-        "disease_model": 'url',
+        "growth_period": "90-120 days",
+        "disease_model": 'None',
         "disease": '1. Alternaria Blight, 2. Anthracnose, 3. Cercospora leaf sopt, 4. White mold, 5. Wilt, 6. Aphids, 7. Army worms'
     }
     response = {
